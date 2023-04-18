@@ -33,41 +33,51 @@ class _FullPostState extends State<FullPost> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Handle share button press
-            },
+            onPressed: () {},
           ),
         ],
-        title: const Text('Companion'),
+        elevation: 0,
+        backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
+        title: const Text(
+          'Companion',
+          style: TextStyle(fontFamily: 'Roboto'),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 300,
+              height: 250,
               width: double.infinity,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
                 ),
-                child: Image.network(
-                  post.imgUrl,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Image.network(
+                      post.imgUrl,
+                      fit: BoxFit.cover,
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
-            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -83,23 +93,19 @@ class _FullPostState extends State<FullPost> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  const Icon(
-                    Icons.location_on,
-                    color: Colors.grey,
-                  ),
                   const SizedBox(width: 8),
                   Text(
                     post.location,
                     style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       color: Colors.grey,
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  const Spacer(),
                   const Text(
                     'Till 7th of April',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       color: Colors.red,
                     ),
                   ),
@@ -107,18 +113,41 @@ class _FullPostState extends State<FullPost> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               child: Row(
                 children: [
-                  ElevatedButton(
-                    child: const Text('Donate'),
-                    onPressed: () {},
+                  Container(
+                    width: 200,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: const Color.fromRGBO(88, 101, 242, 1.0),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: const Text(
+                        'Donate',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
                   ),
-                  const SizedBox(width: 8),
-                  IconButton(
-                    icon: const Icon(Icons.more_horiz),
-                    color: Colors.grey[400],
-                    onPressed: () {},
+                  const Spacer(),
+                  Container(
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.more_horiz),
+                      color: Colors.white,
+                      onPressed: () {},
+                    ),
                   ),
                 ],
               ),
