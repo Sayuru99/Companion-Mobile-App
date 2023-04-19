@@ -162,7 +162,7 @@ class PostWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 50),
+                    const Spacer(),
                     SvgPicture.asset(
                       'assets/icons/like.svg',
                       height: 15,

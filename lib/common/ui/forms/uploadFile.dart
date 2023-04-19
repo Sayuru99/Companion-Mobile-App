@@ -48,33 +48,46 @@ class _UploadFilePageState extends State<UploadFilePage> {
           children: [
             Container(
               color: Colors.white,
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Color.fromRGBO(88, 101, 242, 1.0),
-                    ),
+              child: Container(
+                color: const Color.fromRGBO(88, 101, 242, 1.0),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-                  const Expanded(
-                    child: Center(
-                      child: Text(
-                        'Upload',
-                        style: TextStyle(
-                          color: Color.fromRGBO(88, 101, 242, 1.0),
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Color.fromRGBO(88, 101, 242, 1.0),
+                          ),
                         ),
-                      ),
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              'Upload',
+                              style: TextStyle(
+                                color: const Color.fromRGBO(88, 101, 242, 1.0),
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: GoogleFonts.raleway().fontFamily,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 50,
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    width: 50,
-                  ),
-                ],
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -99,6 +112,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
                               style: TextStyle(
                                 color: Colors.blueGrey,
                                 fontSize: 26,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                             Text(
@@ -106,6 +120,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
                               style: TextStyle(
                                 color: Colors.blueGrey,
                                 fontSize: 26,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                             SizedBox(height: 16),
@@ -165,7 +180,11 @@ class PointedTextList extends StatelessWidget {
             .map((item) => ListTile(
                   title: Text(
                     item,
-                    style: const TextStyle(color: Colors.grey),
+                    style: const TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   contentPadding: const EdgeInsets.only(left: 4.0),
                 ))

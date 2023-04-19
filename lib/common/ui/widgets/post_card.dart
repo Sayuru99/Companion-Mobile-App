@@ -1,7 +1,30 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import '../../models/posts.dart';
+
+class Post {
+  final String imgUrl;
+  final String description;
+  final int likes;
+  final int raisedAmount;
+  final int totalAmount;
+  final List<Contributor> contributors;
+
+  const Post({
+    required this.imgUrl,
+    required this.description,
+    required this.likes,
+    required this.raisedAmount,
+    required this.totalAmount,
+    required this.contributors,
+  });
+}
+
+class Contributor {
+  final String avatar;
+
+  const Contributor({required this.avatar});
+}
 
 class PostCard extends StatelessWidget {
   final Post post;
@@ -21,14 +44,17 @@ class PostCard extends StatelessWidget {
         children: [
           SizedBox(
             height: 230,
-            width: 150,
-            child: Image.network(post.imgUrl, fit: BoxFit.cover),
+            width: MediaQuery.of(context).size.width,
+            child: Image.network(
+              'https://picsum.photos/seed/1/600',
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: LinearProgressIndicator(
-              value: post.raisedAmount / post.totalAmount,
+              value: 0.7,
               color: Colors.blue,
               backgroundColor: Colors.grey[200],
               minHeight: 4,
@@ -40,17 +66,21 @@ class PostCard extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(post.contributors[0].avatar),
+                  backgroundImage: NetworkImage(
+                    'https://picsum.photos/seed/2/100',
+                  ),
                   radius: 12,
                 ),
                 const SizedBox(width: 4),
                 CircleAvatar(
-                  backgroundImage: NetworkImage(post.contributors[1].avatar),
+                  backgroundImage: NetworkImage(
+                    'https://picsum.photos/seed/3/100',
+                  ),
                   radius: 12,
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  'Liked by ${post.likes} people',
+                  'Liked by 200 people',
                   style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
@@ -63,7 +93,7 @@ class PostCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
-              post.description,
+              'This is a sample post description. This is a sample post description.',
               style: const TextStyle(fontSize: 12),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

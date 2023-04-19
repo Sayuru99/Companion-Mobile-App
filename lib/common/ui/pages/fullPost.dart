@@ -2,6 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../models/posts.dart';
 import '../../routes/routes.dart';
@@ -47,37 +48,42 @@ class _FullPostState extends State<FullPost> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 250,
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-                child: Stack(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(88, 101, 242, 1.0),
+            Container(
+              color: const Color.fromRGBO(88, 101, 242, 1.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                  child: Stack(
+                    children: [
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Color.fromRGBO(88, 101, 242, 1.0),
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: post.imgUrl,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      child: CachedNetworkImage(
-                        imageUrl: post.imgUrl,
-                        fit: BoxFit.cover,
+                      IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
                       ),
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 8,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -94,7 +100,6 @@ class _FullPostState extends State<FullPost> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  const SizedBox(width: 8),
                   Text(
                     post.location,
                     style: const TextStyle(
@@ -117,37 +122,44 @@ class _FullPostState extends State<FullPost> {
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               child: Row(
                 children: [
-                  Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color.fromRGBO(88, 101, 242, 1.0),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
+                  Expanded(
+                    flex: 7,
+                    child: Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(88, 101, 242, 1.0),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Text(
-                        'Donate',
-                        style: TextStyle(
-                          color: Colors.white,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
                         ),
+                        child: Text(
+                          'Donate',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: GoogleFonts.raleway().fontFamily,
+                          ),
+                        ),
+                        onPressed: () {},
                       ),
-                      onPressed: () {},
                     ),
                   ),
-                  const Spacer(),
-                  Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.more_horiz),
-                      color: Colors.white,
-                      onPressed: () {},
+                  const Spacer(flex: 1),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.more_horiz),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
                     ),
                   ),
                 ],
@@ -230,20 +242,20 @@ class _FullPostState extends State<FullPost> {
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
-                        Icon(
-                          Icons.thumb_up_alt_outlined,
-                          size: 15,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/like.svg',
+                          height: 15,
                         ),
-                        SizedBox(width: 5),
-                        Icon(
-                          Icons.chat,
-                          size: 15,
+                        const SizedBox(width: 5),
+                        SvgPicture.asset(
+                          'assets/icons/message.svg',
+                          height: 15,
                         ),
-                        SizedBox(width: 5),
-                        Icon(
-                          Icons.share,
-                          size: 15,
+                        const SizedBox(width: 5),
+                        SvgPicture.asset(
+                          'assets/icons/share.svg',
+                          height: 15,
                         ),
                       ],
                     ),

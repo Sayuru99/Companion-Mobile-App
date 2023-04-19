@@ -18,9 +18,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  late Future<List<Post>> _postsFuture;
   late User _currentUser = User(
-    name: 'John Doe',
+    name: 'Tharun NSBM',
     location: 'New York, NY',
     avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
     followers: 5632,
@@ -40,7 +39,6 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    _postsFuture = PostController().fetchPosts();
   }
 
   @override
@@ -132,6 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const Divider(),
+
             // FutureBuilder(
             //   future: _postsFuture,
             //   builder: (ctx, snapshot) {

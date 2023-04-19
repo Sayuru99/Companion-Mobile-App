@@ -93,32 +93,50 @@ class _CreatePostPageState extends State<CreatePostPage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               color: Colors.white,
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.blue,
+              child: Container(
+                color: const Color.fromRGBO(88, 101, 242, 1.0),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Color.fromRGBO(88, 101, 242, 1.0),
+                          ),
+                        ),
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              'Create Post',
+                              style: TextStyle(
+                                color: const Color.fromRGBO(88, 101, 242, 1.0),
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: GoogleFonts.raleway().fontFamily,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 50,
+                        ),
+                      ],
                     ),
                   ),
-                  const Center(
-                    child: Text(
-                      'Create Post',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -150,7 +168,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   const SizedBox(height: 16),
                   Column(
                     children: [
-                      const Divider(),
+                      const Divider(
+                        color: Colors.grey,
+                      ),
                       GestureDetector(
                         onTap: _selectPhotos,
                         child: Row(
@@ -169,7 +189,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           ],
                         ),
                       ),
-                      const Divider(),
+                      const Divider(
+                        color: Colors.grey,
+                      ),
                       GestureDetector(
                         onTap: _selectVideos,
                         child: Row(
@@ -188,7 +210,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           ],
                         ),
                       ),
-                      const Divider(),
+                      const Divider(
+                        color: Colors.grey,
+                      ),
                       GestureDetector(
                         onTap: _selectLocation,
                         child: Row(
@@ -207,14 +231,23 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           ],
                         ),
                       ),
-                      const Divider(),
+                      const Divider(
+                        color: Colors.grey,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Raise Funds'),
+                      Text(
+                        'Raise Funds',
+                        style: TextStyle(
+                          fontFamily: GoogleFonts.raleway().fontFamily,
+                          fontWeight: FontWeight.w800,
+                          color: const Color.fromRGBO(88, 101, 242, 1.0),
+                        ),
+                      ),
                       Switch(
                         value: _raiseFunds,
                         onChanged: _toggleRaiseFunds,
@@ -238,7 +271,13 @@ class _CreatePostPageState extends State<CreatePostPage> {
       width: 200,
       child: ElevatedButton(
         onPressed: _nextAction,
-        child: Text(_raiseFunds ? 'Next' : 'Post'),
+        child: Text(
+          _raiseFunds ? 'Next' : 'Post',
+          style: TextStyle(
+            fontFamily: GoogleFonts.raleway().fontFamily,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
