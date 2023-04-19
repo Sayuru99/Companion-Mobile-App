@@ -58,8 +58,8 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0),
             bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(50),
-            topRight: Radius.circular(50),
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
           color: Colors.white,
         ),
