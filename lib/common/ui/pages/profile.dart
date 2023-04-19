@@ -18,7 +18,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  late User _currentUser = User(
+  int _pageIndex = 4;
+  late final User _currentUser = User(
     name: 'Tharun NSBM',
     location: 'New York, NY',
     avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
@@ -28,17 +29,13 @@ class _ProfilePageState extends State<ProfilePage> {
     id: 001,
     username: 'sayuru99',
   );
-  int _pageIndex = 4;
+
+  int get currentPageIndex => _pageIndex;
 
   void updatePageIndex(int index) {
     setState(() {
       _pageIndex = index;
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override

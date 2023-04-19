@@ -101,9 +101,7 @@ class _MyCurvedNavigationBarState extends State<MyCurvedNavigationBar> {
       children: [
         SvgPicture.asset(
           imagePath,
-          color: isSelectedList[index]
-              ? const Color.fromRGBO(88, 101, 242, 1.0)
-              : Colors.black,
+          color: isSelectedList[index] ? Colors.blue : Colors.black,
           height: 15,
           width: 20,
         ),

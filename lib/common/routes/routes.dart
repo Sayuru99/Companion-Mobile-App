@@ -21,7 +21,7 @@ class Routes {
     add: (context) => const CreatePostPage(
           companion: 'Companion',
         ),
-    explore: (context) => const ExplorePage(),
+    explore: (context) => ExplorePage(),
     chat: (context) => const Chat(),
     login: (context) => LoginWidget(),
   };
