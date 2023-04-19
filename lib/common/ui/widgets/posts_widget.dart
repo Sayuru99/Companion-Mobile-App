@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../models/posts.dart';
 import '../../models/user.dart';
@@ -81,8 +83,8 @@ class PostWidget extends StatelessWidget {
               ],
             ),
           ),
-          Image.network(
-            post.imgUrl,
+          CachedNetworkImage(
+            imageUrl: post.imgUrl,
             fit: BoxFit.cover,
             height: 300,
             width: double.infinity,
@@ -160,26 +162,20 @@ class PostWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
-                          Icon(
-                            Icons.thumb_up_alt_outlined,
-                            size: 15,
-                          ),
-                          SizedBox(width: 5),
-                          Icon(
-                            Icons.chat,
-                            size: 15,
-                          ),
-                          SizedBox(width: 5),
-                          Icon(
-                            Icons.share,
-                            size: 15,
-                          ),
-                        ],
-                      ),
+                    const SizedBox(width: 50),
+                    SvgPicture.asset(
+                      'assets/icons/like.svg',
+                      height: 15,
+                    ),
+                    const SizedBox(width: 5),
+                    SvgPicture.asset(
+                      'assets/icons/message.svg',
+                      height: 15,
+                    ),
+                    const SizedBox(width: 5),
+                    SvgPicture.asset(
+                      'assets/icons/share.svg',
+                      height: 15,
                     ),
                   ],
                 ),

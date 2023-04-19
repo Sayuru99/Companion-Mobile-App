@@ -32,11 +32,11 @@ class _MyCurvedNavigationBarState extends State<MyCurvedNavigationBar> {
         iconBuild(_isSelectedList, 'assets/icons/home.svg', 0),
         Icon(
           Icons.explore_outlined,
-          color: _isSelectedList == 1 ? Colors.black : Colors.grey,
+          color: _isSelectedList == 1 ? Colors.blue : Colors.black54,
           size: 20,
         ),
         Transform.translate(
-          offset: const Offset(0, -20),
+          offset: const Offset(0, -30),
           child: SizedBox(
             width: 50,
             height: 50,

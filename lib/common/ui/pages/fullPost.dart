@@ -1,3 +1,6 @@
+// ignore_for_file: file_names, library_private_types_in_public_api, unused_field
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../models/posts.dart';
 import '../../routes/routes.dart';
@@ -13,14 +16,6 @@ class FullPost extends StatefulWidget {
 }
 
 class _FullPostState extends State<FullPost> {
-  int _pageIndex = 0;
-
-  void updatePageIndex(int index) {
-    setState(() {
-      _pageIndex = index;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -36,14 +31,14 @@ class _FullPostState extends State<FullPost> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications_none_outlined),
             onPressed: () {},
           ),
         ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: const Text(
-          'Companion',
+          'COMPANION',
           style: TextStyle(fontFamily: 'Roboto'),
         ),
       ),
@@ -61,9 +56,14 @@ class _FullPostState extends State<FullPost> {
                 ),
                 child: Stack(
                   children: [
-                    Image.network(
-                      post.imgUrl,
-                      fit: BoxFit.cover,
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Color.fromRGBO(88, 101, 242, 1.0),
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: post.imgUrl,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     IconButton(
                       icon: const Icon(
@@ -273,33 +273,6 @@ class _FullPostState extends State<FullPost> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: MyCurvedNavigationBar(
-        onTabSelected: (index) {
-          updatePageIndex(index);
-
-          switch (index) {
-            case 0:
-              // Navigate to the home page
-              Navigator.pushNamed(context, Routes.home);
-              break;
-            case 1:
-              // Navigate to the explore page
-              Navigator.pushNamed(context, Routes.explore);
-              break;
-            case 2:
-              Navigator.pushNamed(context, Routes.add);
-              break;
-            case 3:
-              // Navigate to the messages page
-              Navigator.pushNamed(context, Routes.chat);
-              break;
-            case 4:
-              // Navigate to the profile page
-              Navigator.pushNamed(context, Routes.profile);
-              break;
-          }
-        },
       ),
     );
   }

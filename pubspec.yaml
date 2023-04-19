@@ -46,6 +46,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   shimmer: ^2.0.0
   flutter_svg: ^2.0.5
+  flutter_neumorphic: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,9 @@ flutter:
     - assets/icons/messages.svg
     - assets/icons/proifle.svg
     - assets/icons/search.svg
+    - assets/icons/like.svg
+    - assets/icons/share.svg
+    - assets/icons/message.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

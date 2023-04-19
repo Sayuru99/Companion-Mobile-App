@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, unused_field
 
 import 'package:companion_app/common/controller/user_controller.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   int _pageIndex = 0;
   late final User user;
   late final Post post;
+  late User _currentUser;
   final PostController postController = PostController();
   final UserController userController = UserController();
   final TextEditingController searchController = TextEditingController();
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: const Text(
-          'Companion',
+          'COMPANION',
           style: TextStyle(fontFamily: 'Roboto'),
         ),
       ),

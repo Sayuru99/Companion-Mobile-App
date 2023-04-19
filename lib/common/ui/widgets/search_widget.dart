@@ -10,7 +10,7 @@ class SearchWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: const Color.fromARGB(243, 224, 224, 219),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(30),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(

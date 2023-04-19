@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/events.dart';
@@ -18,7 +18,9 @@ class EventsController extends ChangeNotifier {
       _events = jsonData.map((e) => Event.fromJson(e)).toList();
       notifyListeners();
     } catch (error) {
-      print('Failed to fetch events: $error');
+      if (kDebugMode) {
+        print('Failed to fetch events: $error');
+      }
     }
   }
 }

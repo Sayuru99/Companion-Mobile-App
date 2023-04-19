@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, unused_field
+
 import 'package:flutter/material.dart';
 import '../../models/events.dart';
 import '../../routes/routes.dart';
@@ -31,7 +33,7 @@ class _ExplorePageState extends State<ExplorePage> {
           children: [
             Text(
               'Events',
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Expanded(
               child: FutureBuilder(

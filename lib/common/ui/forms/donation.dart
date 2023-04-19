@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, unused_field, sort_child_properties_last
+// ignore_for_file: library_private_types_in_public_api, unused_field, sort_child_properties_last, unused_element
 
 import 'package:companion_app/common/ui/forms/uploadFile.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
   }
 
   void _selectLocation() {
-    // TODO: Implement location selection logic
+    //
   }
 
   void _toggleRaiseFunds(bool value) {
@@ -51,7 +51,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
   }
 
   void _createPost() {
-    // TODO: Implement post creation logic
+    //
   }
 
   void _nextAction() {
@@ -80,7 +80,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: const Center(
           child: Text(
-            'Companion',
+            'COMPANION',
             style: TextStyle(fontFamily: 'Roboto'),
           ),
         ),
@@ -123,11 +123,6 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const CircleAvatar(
-                        radius: 20,
-                        backgroundImage:
-                            NetworkImage('https://via.placeholder.com/50'),
-                      ),
                       const SizedBox(width: 8),
                       Expanded(
                         child: TextField(
