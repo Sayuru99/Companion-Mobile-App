@@ -26,53 +26,55 @@ class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Events',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            Expanded(
-              child: FutureBuilder(
-                future: EventsController().fetchEvents(),
-                builder: (ctx, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  if (snapshot.hasError) {
-                    return Center(
-                      child: Text('An error occurred: ${snapshot.error}'),
-                    );
-                  }
-                  final events = snapshot.data as List<Event>?;
-                  if (events == null || events.isEmpty) {
-                    return const Center(
-                      child: Text(
-                        'No events found.',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    );
-                  }
-                  return ListView.builder(
-                    itemCount: events.length,
-                    itemBuilder: (ctx, index) {
-                      final event = events[index];
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 16.0),
-                        child: EventCard(event: event),
-                      );
-                    },
-                  );
-                },
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Events',
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
-            ),
-          ],
+              Expanded(
+                child: FutureBuilder(
+                  future: EventsController().fetchEvents(),
+                  builder: (ctx, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text('An error occurred: ${snapshot.error}'),
+                      );
+                    }
+                    final events = snapshot.data as List<Event>?;
+                    if (events == null || events.isEmpty) {
+                      return const Center(
+                        child: Text(
+                          'No events found.',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      );
+                    }
+                    return ListView.builder(
+                      itemCount: events.length,
+                      itemBuilder: (ctx, index) {
+                        final event = events[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: EventCard(event: event),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: MyCurvedNavigationBar(
