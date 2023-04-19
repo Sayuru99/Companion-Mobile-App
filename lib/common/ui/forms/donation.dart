@@ -3,6 +3,7 @@
 import 'package:companion_app/common/ui/forms/uploadFile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -85,9 +86,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
         ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
-        title: const Text(
+        title: Text(
           'COMPANION',
-          style: TextStyle(fontFamily: 'Roboto'),
+          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(

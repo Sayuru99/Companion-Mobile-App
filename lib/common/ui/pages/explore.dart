@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, unused_field
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../models/events.dart';
 import '../../routes/routes.dart';
 import '../widgets/navigation_widget.dart';
@@ -26,6 +27,21 @@ class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_none_outlined),
+            onPressed: () {},
+          ),
+        ],
+        elevation: 0,
+        backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
+        title: Text(
+          'COMPANION',
+          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

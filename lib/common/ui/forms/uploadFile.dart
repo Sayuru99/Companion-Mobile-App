@@ -3,6 +3,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UploadFilePage extends StatefulWidget {
   const UploadFilePage({Key? key}) : super(key: key);
@@ -36,9 +37,9 @@ class _UploadFilePageState extends State<UploadFilePage> {
         ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
-        title: const Text(
+        title: Text(
           'Companion',
-          style: TextStyle(fontFamily: 'Roboto'),
+          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(

@@ -2,6 +2,7 @@
 
 import 'package:companion_app/common/controller/user_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../controller/posts_controller.dart';
 import '../../routes/routes.dart';
@@ -48,9 +49,9 @@ class _HomePageState extends State<HomePage> {
         ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
-        title: const Text(
+        title: Text(
           'COMPANION',
-          style: TextStyle(fontFamily: 'Roboto'),
+          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(

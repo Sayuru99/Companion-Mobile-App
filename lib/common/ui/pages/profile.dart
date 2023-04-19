@@ -7,6 +7,7 @@ import '../../controller/posts_controller.dart';
 import '../../models/user.dart';
 import '../../routes/routes.dart';
 import '../../ui/widgets/post_card.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/navigation_widget.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -55,9 +56,9 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
-        title: const Text(
-          'Companion',
-          style: TextStyle(fontFamily: 'Roboto'),
+        title: Text(
+          'COMPANION',
+          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(
