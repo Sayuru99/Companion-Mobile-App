@@ -2,6 +2,7 @@
 
 import 'package:companion_app/common/ui/forms/uploadFile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -76,13 +77,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_none_outlined),
+            onPressed: () {},
+          ),
+        ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
-        title: const Center(
-          child: Text(
-            'COMPANION',
-            style: TextStyle(fontFamily: 'Roboto'),
-          ),
+        title: const Text(
+          'COMPANION',
+          style: TextStyle(fontFamily: 'Roboto'),
         ),
       ),
       body: SingleChildScrollView(
@@ -144,16 +149,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   const SizedBox(height: 16),
                   Column(
                     children: [
+                      const Divider(),
                       GestureDetector(
                         onTap: _selectPhotos,
                         child: Row(
-                          children: const [
-                            Icon(
-                              Icons.photo,
-                              color: Color.fromRGBO(88, 101, 242, 1.0),
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/images.svg',
+                              height: 25,
                             ),
-                            SizedBox(width: 16),
-                            Text(
+                            const SizedBox(width: 16),
+                            const Text(
                               'Photos',
                               style: TextStyle(
                                 color: Color.fromRGBO(88, 101, 242, 1.0),
@@ -162,17 +168,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const Divider(),
                       GestureDetector(
                         onTap: _selectVideos,
                         child: Row(
-                          children: const [
-                            Icon(
-                              Icons.video_collection,
-                              color: Color.fromRGBO(88, 101, 242, 1.0),
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/video.svg',
+                              height: 25,
                             ),
-                            SizedBox(width: 16),
-                            Text(
+                            const SizedBox(width: 16),
+                            const Text(
                               'Videos',
                               style: TextStyle(
                                 color: Color.fromRGBO(88, 101, 242, 1.0),
@@ -181,17 +187,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const Divider(),
                       GestureDetector(
                         onTap: _selectLocation,
                         child: Row(
-                          children: const [
-                            Icon(
-                              Icons.location_on,
-                              color: Color.fromRGBO(88, 101, 242, 1.0),
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/location.svg',
+                              height: 25,
                             ),
-                            SizedBox(width: 16),
-                            Text(
+                            const SizedBox(width: 16),
+                            const Text(
                               'Location',
                               style: TextStyle(
                                 color: Color.fromRGBO(88, 101, 242, 1.0),
@@ -200,6 +206,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           ],
                         ),
                       ),
+                      const Divider(),
                     ],
                   ),
                   const SizedBox(height: 16),

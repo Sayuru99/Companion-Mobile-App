@@ -28,13 +28,17 @@ class _UploadFilePageState extends State<UploadFilePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_none_outlined),
+            onPressed: () {},
+          ),
+        ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
-        title: const Center(
-          child: Text(
-            'Companion',
-            style: TextStyle(fontFamily: 'Roboto'),
-          ),
+        title: const Text(
+          'Companion',
+          style: TextStyle(fontFamily: 'Roboto'),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,15 +58,20 @@ class _UploadFilePageState extends State<UploadFilePage> {
                       color: Color.fromRGBO(88, 101, 242, 1.0),
                     ),
                   ),
-                  const Center(
-                    child: Text(
-                      'Upload',
-                      style: TextStyle(
-                        color: Color.fromRGBO(88, 101, 242, 1.0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                  const Expanded(
+                    child: Center(
+                      child: Text(
+                        'Upload',
+                        style: TextStyle(
+                          color: Color.fromRGBO(88, 101, 242, 1.0),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    width: 50,
                   ),
                 ],
               ),
@@ -130,7 +139,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
                 ),
-                child: const Text('Post'),
+                child: const Text('Send'),
               ),
             )
           ],

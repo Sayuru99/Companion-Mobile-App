@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../models/posts.dart';
@@ -45,6 +47,12 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {},
+          ),
+        ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: const Text(
@@ -84,8 +92,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            const Icon(Icons.location_on, size: 16),
-                            const SizedBox(width: 4),
                             Text(_currentUser.location),
                           ],
                         ),
@@ -100,6 +106,23 @@ class _ProfilePageState extends State<ProfilePage> {
                             const SizedBox(width: 4),
                             Text('${_currentUser.events} events'),
                           ],
+                        ),
+                        const SizedBox(height: 8),
+                        ElevatedButton(
+                          onPressed: () {
+                            //
+                          },
+                          child: const Text('Edit Profile'),
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.grey[300],
+                            shape: const RoundedRectangleBorder(
+                              side: BorderSide(
+                                  color: Color.fromARGB(255, 209, 206, 206)),
+                            ),
+                            elevation: 0,
+                            minimumSize: const Size(200, 24),
+                          ),
                         ),
                       ],
                     ),

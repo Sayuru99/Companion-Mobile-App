@@ -40,6 +40,12 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_none_outlined),
+            onPressed: () {},
+          ),
+        ],
         elevation: 0,
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: const Text(
