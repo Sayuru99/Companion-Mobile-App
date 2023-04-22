@@ -88,6 +88,15 @@ class PostWidget extends StatelessWidget {
             fit: BoxFit.cover,
             height: 300,
             width: double.infinity,
+            imageBuilder: (context, imageProvider) => Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -117,6 +126,19 @@ class PostWidget extends StatelessWidget {
                     Text(
                       'LKR.${post.raisedAmount} raised of LKR.${post.totalAmount}',
                       style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 11,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      'Liked by Huge and 200 others',
+                      style: TextStyle(
                         color: Colors.black,
                         fontSize: 10,
                       ),

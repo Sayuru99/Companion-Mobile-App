@@ -96,7 +96,8 @@ class _UploadFilePageState extends State<UploadFilePage> {
               child: GestureDetector(
                 onTap: _selectFiles,
                 child: SizedBox(
-                  height: 200,
+                  width: 300,
+                  height: 300,
                   child: DottedBorder(
                     dashPattern: const [4],
                     strokeWidth: 2,
@@ -111,7 +112,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
                               'Upload your legal ',
                               style: TextStyle(
                                 color: Colors.blueGrey,
-                                fontSize: 26,
+                                fontSize: 24,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -119,7 +120,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
                               'document here',
                               style: TextStyle(
                                 color: Colors.blueGrey,
-                                fontSize: 26,
+                                fontSize: 24,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -147,7 +148,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
             ),
             const SizedBox(height: 16),
             SizedBox(
-              width: 200,
+              width: 250,
               child: ElevatedButton(
                 onPressed: () {
                   //

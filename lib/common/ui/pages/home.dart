@@ -43,7 +43,10 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_none_outlined),
+            icon: const Icon(
+              Icons.notifications_none_outlined,
+              size: 30,
+            ),
             onPressed: () {},
           ),
         ],
@@ -51,7 +54,10 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: Text(
           'COMPANION',
-          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
+          style: GoogleFonts.raleway(
+            fontWeight: FontWeight.bold,
+            fontSize: 22.5,
+          ),
         ),
       ),
       body: Container(

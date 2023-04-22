@@ -80,7 +80,10 @@ class _CreatePostPageState extends State<CreatePostPage> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_none_outlined),
+            icon: const Icon(
+              Icons.notifications_none_outlined,
+              size: 30,
+            ),
             onPressed: () {},
           ),
         ],
@@ -88,7 +91,10 @@ class _CreatePostPageState extends State<CreatePostPage> {
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: Text(
           'COMPANION',
-          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
+          style: GoogleFonts.raleway(
+            fontWeight: FontWeight.bold,
+            fontSize: 22.5,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -157,8 +163,10 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           },
                           minLines: 8,
                           maxLines: null,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: 'Want to start a charity?',
+                            hintStyle: TextStyle(
+                                fontFamily: GoogleFonts.raleway().fontFamily),
                             border: InputBorder.none,
                           ),
                         ),
@@ -268,7 +276,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
   Widget _createPostButton() {
     return SizedBox(
-      width: 200,
+      width: 250,
       child: ElevatedButton(
         onPressed: _nextAction,
         child: Text(

@@ -33,7 +33,10 @@ class _FullPostState extends State<FullPost> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_none_outlined),
+            icon: const Icon(
+              Icons.notifications_none_outlined,
+              size: 30,
+            ),
             onPressed: () {},
           ),
         ],
@@ -41,7 +44,10 @@ class _FullPostState extends State<FullPost> {
         backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
         title: Text(
           'COMPANION',
-          style: GoogleFonts.raleway(fontWeight: FontWeight.bold),
+          style: GoogleFonts.raleway(
+            fontWeight: FontWeight.bold,
+            fontSize: 22.5,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,8 +60,8 @@ class _FullPostState extends State<FullPost> {
                 width: double.infinity,
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
                   child: Stack(
                     children: [
@@ -102,17 +108,19 @@ class _FullPostState extends State<FullPost> {
                 children: [
                   Text(
                     post.location,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey,
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   const Spacer(),
-                  const Text(
+                  Text(
                     'Till 7th of April',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.red,
+                      color: Colors.red.shade900,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],
@@ -132,7 +140,8 @@ class _FullPostState extends State<FullPost> {
                       ),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
+                          backgroundColor:
+                              const Color.fromRGBO(88, 101, 242, 1.0),
                         ),
                         child: Text(
                           'Donate',
@@ -140,6 +149,7 @@ class _FullPostState extends State<FullPost> {
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
                             fontFamily: GoogleFonts.raleway().fontFamily,
+                            fontSize: 14,
                           ),
                         ),
                         onPressed: () {},
@@ -157,7 +167,7 @@ class _FullPostState extends State<FullPost> {
                       ),
                       child: IconButton(
                         icon: const Icon(Icons.more_horiz),
-                        color: Colors.white,
+                        color: const Color.fromRGBO(88, 101, 242, 1.0),
                         onPressed: () {},
                       ),
                     ),
@@ -192,6 +202,21 @@ class _FullPostState extends State<FullPost> {
                   Text(
                     'LKR.${post.raisedAmount} raised of LKR.${post.totalAmount}',
                     style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Liked by Huge and 200 others',
+                    style: TextStyle(
                       color: Colors.black,
                       fontSize: 10,
                     ),
@@ -263,6 +288,21 @@ class _FullPostState extends State<FullPost> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Lorem Ipsum upidatat sunt aute ut adipisicing id cupidatat dolor laborum fugiat. t dewanam id el nas el sal na hinuwa pacadona dolor laborum arigat.',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const Padding(
               padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
               child: Text(
@@ -271,18 +311,25 @@ class _FullPostState extends State<FullPost> {
               ),
             ),
             const SizedBox(height: 8),
-            GridView.count(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
-              children: post.images.map((image) {
-                return Image.network(
-                  image,
-                  fit: BoxFit.cover,
-                );
-              }).toList(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                children: post.images.map((image) {
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                        10), // adjust the radius as needed
+                    child: Image.network(
+                      image,
+                      fit: BoxFit.cover,
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
           ],
         ),
