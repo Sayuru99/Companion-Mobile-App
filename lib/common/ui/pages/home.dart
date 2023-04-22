@@ -124,8 +124,11 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.grey[300],
                                   ),
                                   subtitle: Container(
-                                    height: 10,
-                                    color: Colors.grey[300],
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[300],
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                 ),
                               );
