@@ -178,8 +178,34 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              const Divider(),
-              const ProfilePosts(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'Fund Raisings',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Divider(),
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                    child: ProfilePosts(),
+                  ),
+                  Expanded(
+                    child: ProfilePosts(),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

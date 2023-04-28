@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: GoogleFonts.roboto().fontFamily),
-      initialRoute: Routes.login,
+      initialRoute: Routes.home,
       routes: Routes.routes,
     );
   }

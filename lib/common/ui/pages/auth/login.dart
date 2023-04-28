@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import '../home.dart';
 import 'register_page.dart';
 import 'forgot_psw.dart';
 
@@ -186,32 +187,39 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(
                               height: 40,
                             ),
-                            InkWell(
+                            GestureDetector(
                               onTap: () {
                                 if (_formfield.currentState!.validate()) {
                                   emailController.clear();
                                   passController.clear();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const HomePage(),
+                                    ),
+                                  );
                                 }
                               },
                               child: SizedBox(
-                                  height: 50,
-                                  width: 300,
-                                  child: Material(
-                                    borderRadius: BorderRadius.circular(11),
-                                    color:
-                                        const Color.fromRGBO(87, 100, 241, 1.0),
-                                    elevation: 7.0,
-                                    child: const Center(
-                                      child: Text(
-                                        "Sign In",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 24,
-                                            fontFamily: 'Raleway',
-                                            fontWeight: FontWeight.bold),
-                                      ),
+                                height: 50,
+                                width: 300,
+                                child: Material(
+                                  borderRadius: BorderRadius.circular(11),
+                                  color:
+                                      const Color.fromRGBO(87, 100, 241, 1.0),
+                                  elevation: 7.0,
+                                  child: const Center(
+                                    child: Text(
+                                      "Sign In",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 24,
+                                          fontFamily: 'Raleway',
+                                          fontWeight: FontWeight.bold),
                                     ),
-                                  )),
+                                  ),
+                                ),
+                              ),
                             ),
 
                             const SizedBox(

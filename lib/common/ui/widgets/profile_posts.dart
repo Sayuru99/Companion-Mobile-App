@@ -13,7 +13,7 @@ class ProfilePosts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(8.0),
       child: Flexible(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,8 +21,10 @@ class ProfilePosts extends StatelessWidget {
             // Image
             Container(
               height: 200,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 221, 218, 218),
+                borderRadius: BorderRadius.circular(10),
+                image: const DecorationImage(
                   image: NetworkImage('https://picsum.photos/800/400'),
                   fit: BoxFit.cover,
                 ),
@@ -78,24 +80,27 @@ class ProfilePosts extends StatelessWidget {
                   ),
                 ),
                 // "150 contributors" Text
-                SizedBox(
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 221, 218, 218),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      '150 contributors',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                      ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              child: SizedBox(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 221, 218, 218),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text(
+                    '150 contributors',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),
