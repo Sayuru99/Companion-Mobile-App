@@ -1,8 +1,13 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:flutter/material.dart';
 import 'login.dart';
 
 class ForgotPswPage extends StatefulWidget {
+  const ForgotPswPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ForgotPswPageState createState() => _ForgotPswPageState();
 }
 
@@ -106,7 +111,7 @@ class _ForgotPswPageState extends State<ForgotPswPage> {
                                           r"^[zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                       .hasMatch(value!);
 
-                                  if (value!.isEmpty) {
+                                  if (value.isEmpty) {
                                     return "Enter Email";
                                   } else if (!emailValid) {
                                     return "Enter Valid Email";
@@ -188,7 +193,7 @@ class _ForgotPswPageState extends State<ForgotPswPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginPage()),
+                                      builder: (context) => const LoginPage()),
                                 );
                               },
                               child: const Text('Login',

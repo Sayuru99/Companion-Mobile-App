@@ -1,6 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, body_might_complete_normally_nullable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../home.dart';
 import 'register_page.dart';
 import 'forgot_psw.dart';
@@ -20,6 +21,44 @@ class _LoginPageState extends State<LoginPage> {
   bool passToggle = true;
   final repassController = TextEditingController();
   bool repassToggle = true;
+
+  void _login() {
+    if (_formfield.currentState!.validate()) {
+      // Validate the form fields
+
+      String email = emailController.text.trim();
+      String password = passController.text.trim();
+
+      if (email == 'admin@companion.ai' && password == 'Admin@123') {
+        // Login successful
+        emailController.clear();
+        passController.clear();
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomePage(),
+          ),
+        );
+      } else {
+        // Invalid credentials
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Invalid Credentials'),
+              content: const Text('Please enter valid credentials.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                                           r"^[zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                       .hasMatch(value!);
 
-                                  if (value!.isEmpty) {
+                                  if (value.isEmpty) {
                                     return "Enter Email";
                                   } else if (!emailValid) {
                                     return "Enter Valid Email";
@@ -171,7 +210,8 @@ class _LoginPageState extends State<LoginPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => ForgotPswPage()),
+                                        builder: (context) =>
+                                            const ForgotPswPage()),
                                   );
                                 },
                                 child: const Text("Forgot Password?",
@@ -299,12 +339,12 @@ class _LoginPageState extends State<LoginPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: <Widget>[
-                                        Center(
-                                          child: Image.asset(
-                                            'icons/facebook.png',
-                                            height: 30,
-                                          ),
-                                        ),
+                                        // Center(
+                                        //   child: SvgPicture.asset(
+                                        //     'assets/icons/facebook.svg',
+                                        //     height: 25,
+                                        //   ),
+                                        // ),
                                         const SizedBox(
                                           width: 10,
                                         ),
@@ -342,7 +382,8 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => RegisterPage()),
+                                      builder: (context) =>
+                                          const RegisterPage()),
                                 );
                               },
                               child: const Text('Register',

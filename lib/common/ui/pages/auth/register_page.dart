@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, avoid_print, body_might_complete_normally_nullable, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'login.dart';
@@ -178,7 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       r"^[zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                   .hasMatch(value!);
 
-                              if (value!.isEmpty) {
+                              if (value.isEmpty) {
                                 return "Enter Email";
                               } else if (!emailValid) {
                                 return "Enter Valid Email";
@@ -274,8 +274,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             return null;
                           },
                           items: Countries.map((e) => DropdownMenuItem(
-                                child: Text(e),
                                 value: e,
+                                child: Text(e),
                               )).toList(),
                           onChanged: (val) {
                             setState(() {

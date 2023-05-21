@@ -5,6 +5,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'uploadpopuppage.dart';
+
 class UploadFilePage extends StatefulWidget {
   const UploadFilePage({Key? key}) : super(key: key);
 
@@ -146,19 +148,21 @@ class _UploadFilePageState extends State<UploadFilePage> {
                 'Consequat in ad consectetur ad fugiat quis.',
               ],
             ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
+            SizedBox(width: 250, child: Builder(
+              builder: (context) => ElevatedButton(
                 onPressed: () {
-                  //
+                  showDialog(
+                    context: context,
+                    builder: (_) => UploadPopupPage(),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(88, 101, 242, 1.0),
                 ),
                 child: const Text('Send'),
               ),
-            )
+            )),
+
           ],
         ),
       ),
