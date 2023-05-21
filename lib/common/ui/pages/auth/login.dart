@@ -296,9 +296,9 @@ class _LoginPageState extends State<LoginPage> {
                                           MainAxisAlignment.center,
                                       children: <Widget>[
                                         Center(
-                                          child: Image.asset(
-                                            'icons/google.png',
-                                            height: 30,
+                                          child: SvgPicture.asset(
+                                            'assets/icons/google.svg',
+                                            height: 25,
                                           ),
                                         ),
                                         const SizedBox(
@@ -339,12 +339,12 @@ class _LoginPageState extends State<LoginPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: <Widget>[
-                                        // Center(
-                                        //   child: SvgPicture.asset(
-                                        //     'assets/icons/facebook.svg',
-                                        //     height: 25,
-                                        //   ),
-                                        // ),
+                                        Center(
+                                          child: SvgPicture.asset(
+                                            'assets/icons/facebook.svg',
+                                            height: 25,
+                                          ),
+                                        ),
                                         const SizedBox(
                                           width: 10,
                                         ),
