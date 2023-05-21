@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, avoid_print, body_might_complete_normally_nullable, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'login.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -374,16 +375,16 @@ class _RegisterPageState extends State<RegisterPage> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Image.asset(
-                                'icons/google.png',
-                                height: 40,
+                              child: SvgPicture.asset(
+                                'assets/icons/google.svg',
+                                height: 25,
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Image.asset(
-                                'icons/facebook.png',
-                                height: 40,
+                              child: SvgPicture.asset(
+                                'assets/icons/facebook.svg',
+                                height: 25,
                               ),
                             ),
                           ],
