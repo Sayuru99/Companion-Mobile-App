@@ -66,7 +66,7 @@ class _MessagePageState extends State<MessagePage> {
                     itemBuilder: (context, index) {
                       return Avatar(
                         margin: EdgeInsets.only(right: 15),
-                        image: 'assets/image/${index + 1}.png',
+                        image: 'assets/images/${index + 1}.jpg',
                       );
                     },
                   ),
@@ -118,14 +118,14 @@ class _MessagePageState extends State<MessagePage> {
               height: 10,
             ),
             _itemChats(
-              avatar: 'assets/image/01.png',
+              avatar: 'assets/images/49.jpg',
               name: 'Maxwell',
               chat:
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
               time: '08.10',
             ),
             _itemChats(
-              avatar: 'assets/image/03.png',
+              avatar: 'assets/images/14.jpg',
               name: 'Julia',
               chat: 'bla bla bla',
               time: '03.19',
@@ -286,7 +286,7 @@ class _ChatPageState extends State<ChatPage> {
           physics: BouncingScrollPhysics(),
           children: [
             _itemChat(
-              avatar: 'assets/image/01.png',
+              avatar: 'assets/images/49.jpg',
               chat: 1,
               message:
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -298,7 +298,7 @@ class _ChatPageState extends State<ChatPage> {
               time: '18.00',
             ),
             _itemChat(
-              avatar: 'assets/image/01.png',
+              avatar: 'assets/images/14.jpg',
               chat: 1,
               message: 'bla bla bla, 😀',
               time: '18.00',
