@@ -303,6 +303,22 @@ class _FullPostState extends State<FullPost> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    '2023 June 25 at 3PM',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const Padding(
               padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
               child: Text(
