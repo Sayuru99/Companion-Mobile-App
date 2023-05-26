@@ -1,6 +1,7 @@
 class Post {
   final int id;
   final String description;
+  final String longDes;
   final String imgUrl;
   final int userId;
   final String location;
@@ -14,6 +15,7 @@ class Post {
   Post({
     required this.id,
     required this.description,
+    required this.longDes,
     required this.imgUrl,
     required this.userId,
     required this.location,
@@ -37,6 +39,7 @@ class Post {
     return Post(
       id: json['id'],
       description: json['description'],
+      longDes: json['long_des'],
       imgUrl: json['imgUrl'],
       userId: json['userId'],
       location: json['location'],

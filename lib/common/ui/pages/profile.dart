@@ -27,9 +27,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   int _pageIndex = 4;
   late final User _currentUser = User(
-    name: 'Tharun NSBM',
-    location: 'New York, NY',
-    avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
+    name: 'Tharun',
+    location: 'Piliyandala, Colombo',
+    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
     followers: 5632,
     events: 15,
     email: 'sayurudealwis99@gmail.com',

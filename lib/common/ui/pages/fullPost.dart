@@ -292,10 +292,10 @@ class _FullPostState extends State<FullPost> {
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
-                    'Lorem Ipsum upidatat sunt aute ut adipisicing id cupidatat dolor laborum fugiat. t dewanam id el nas el sal na hinuwa pacadona dolor laborum arigat.',
-                    style: TextStyle(
+                    post.longDes,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 14,
                     ),

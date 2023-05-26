@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   bool passToggle = true;
   final repassController = TextEditingController();
   bool repassToggle = true;
+  bool isLoggedIn = false;
 
   void _login() {
     if (_formfield.currentState!.validate()) {
@@ -33,6 +34,9 @@ class _LoginPageState extends State<LoginPage> {
         // Login successful
         emailController.clear();
         passController.clear();
+        setState(() {
+          isLoggedIn = true;
+        });
         Navigator.push(
           context,
           MaterialPageRoute(
