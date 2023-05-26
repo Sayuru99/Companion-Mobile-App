@@ -294,7 +294,7 @@ class _FullPostState extends State<FullPost> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    post.longDes,
+                    post.long_des,
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 14,
