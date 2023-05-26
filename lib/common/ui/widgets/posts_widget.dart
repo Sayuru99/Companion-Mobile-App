@@ -8,14 +8,14 @@ import '../../models/user.dart';
 class PostWidget extends StatelessWidget {
   final Post post;
   final User user;
-  String truncateDescription(String description) {
-    List<String> words = description.split(' ');
-    if (words.length > 8) {
-      words = words.sublist(0, 8);
-      return '${words.join(' ')}...';
-    }
-    return description;
-  }
+  // String truncateDescription(String description) {
+  //   List<String> words = description.split(' ');
+  //   if (words.length > 8) {
+  //     words = words.sublist(0, 8);
+  //     return '${words.join(' ')}...';
+  //   }
+  //   return description;
+  // }
 
   const PostWidget({Key? key, required this.post, required this.user})
       : super(key: key);
@@ -82,7 +82,7 @@ class PostWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  truncateDescription(post.long_des),
+                  post.description,
                   style: const TextStyle(
                     fontWeight: FontWeight.normal,
                     fontFamily: 'Roboto',
