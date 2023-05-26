@@ -14,4 +14,19 @@ class PostController {
       throw Exception('Failed to load posts');
     }
   }
+
+  Future<Post> createPost(Post post) async {
+    final response = await http.post(
+      Uri.parse(
+          'https://my-json-server.typicode.com/Sayuru99/json_server/posts'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(post.toJson()),
+    );
+
+    if (response.statusCode == 201) {
+      return Post.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to create post');
+    }
+  }
 }

@@ -51,6 +51,26 @@ class Post {
       images: images,
     );
   }
+  Map<String, dynamic> toJson() {
+    List<Map<String, dynamic>> contributorsJson =
+        contributors.map((contributor) => contributor.toJson()).toList();
+    List<String> imagesJson = images.toList();
+
+    return {
+      'id': id,
+      'description': description,
+      'long_des': long_des,
+      'imgUrl': imgUrl,
+      'userId': userId,
+      'location': location,
+      'likes': likes,
+      'time': time,
+      'raisedAmount': raisedAmount,
+      'totalAmount': totalAmount,
+      'contributors': contributorsJson,
+      'images': imagesJson,
+    };
+  }
 }
 
 class Contributor {
@@ -70,5 +90,12 @@ class Contributor {
       name: json['name'],
       avatar: json['avatar'],
     );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'avatar': avatar,
+    };
   }
 }

@@ -29,12 +29,12 @@ class _ProfilePageState extends State<ProfilePage> {
   late final User _currentUser = User(
     name: 'Tharun',
     location: 'Piliyandala, Colombo',
-    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    avatar: 'https://randomuser.me/api/portraits/men/2.jpg',
     followers: 5632,
     events: 15,
-    email: 'sayurudealwis99@gmail.com',
+    email: 'tharun@gmail.com',
     id: 001,
-    username: 'sayuru99',
+    username: 'Tharun',
   );
 
   int get currentPageIndex => _pageIndex;

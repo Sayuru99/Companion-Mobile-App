@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, unused_field, sort_child_properties_last, unused_element
+// ignore_for_file: library_private_types_in_public_api, unused_field, sort_child_properties_last, unused_element, avoid_print, use_build_context_synchronously
 
 import 'package:companion_app/common/ui/forms/uploadFile.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +6,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
+
+import '../../controller/posts_controller.dart';
+import '../../models/posts.dart';
 
 class CreatePostPage extends StatefulWidget {
   final String companion;
@@ -52,8 +55,54 @@ class _CreatePostPageState extends State<CreatePostPage> {
     });
   }
 
-  void _createPost() {
+  Future<void> _createPost() async {
     //
+    if (_postText != null && _postText!.isNotEmpty) {
+      Post newPost = Post(
+        id: 0,
+        description: _postText!,
+        long_des: 'Dummy long description',
+        imgUrl: 'https://example.com/image.jpg',
+        userId: 789,
+        location: 'Dummy location',
+        likes: 0, //
+        time: DateTime.now().toString(),
+        raisedAmount: 0,
+        totalAmount: 0,
+        contributors: [],
+        images: [],
+      );
+
+      try {
+        // Add the new post to the JSON server
+        Post createdPost = await PostController().createPost(newPost);
+        print('Created post: $createdPost');
+        // Show a success message or perform other actions as needed
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Post created successfully'),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      } catch (e) {
+        print('Error creating post: $e');
+        // Show an error message or perform error handling as needed
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Failed to create post'),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    } else {
+      // Handle case where post text is empty
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a post description'),
+          duration: Duration(seconds: 1),
+        ),
+      );
+    }
   }
 
   void _nextAction() {
@@ -64,12 +113,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
         ),
       );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Done'),
-          duration: Duration(seconds: 1),
-        ),
-      );
+      _createPost();
     }
   }
 

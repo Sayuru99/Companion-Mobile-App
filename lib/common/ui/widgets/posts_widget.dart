@@ -8,14 +8,14 @@ import '../../models/user.dart';
 class PostWidget extends StatelessWidget {
   final Post post;
   final User user;
-  // String truncateDescription(String description) {
-  //   List<String> words = description.split(' ');
-  //   if (words.length > 8) {
-  //     words = words.sublist(0, 8);
-  //     return '${words.join(' ')}...';
-  //   }
-  //   return description;
-  // }
+  String truncateDescription(String description) {
+    List<String> words = description.split(' ');
+    if (words.length > 8) {
+      words = words.sublist(0, 8);
+      return '${words.join(' ')}...';
+    }
+    return description;
+  }
 
   const PostWidget({Key? key, required this.post, required this.user})
       : super(key: key);
@@ -45,9 +45,10 @@ class PostWidget extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 20,
-                          backgroundImage: NetworkImage(user.avatar),
+                          backgroundImage: NetworkImage(
+                              'https://randomuser.me/api/portraits/men/2.jpg'),
                         ),
                         const SizedBox(width: 8),
                         Column(
